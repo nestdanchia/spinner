@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { SpinnerService } from './spinner.service';
 
 @Injectable()
 export class SpinnerInterceptor implements HttpInterceptor {
 
+    constructor(private spinnerSvc: SpinnerService){}
+    
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        this.spinnerSvc.show();
+        return next.handle(req).pipe(
+            finalize( () => this.spinnerSvc.hide()));
+    }
+
+
+/*
     constructor(private spinnerService: SpinnerService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -20,5 +30,15 @@ export class SpinnerInterceptor implements HttpInterceptor {
             }, (error) => {
                 this.spinnerService.hide();
             }));
+            
+            
     }
+    constructor(private spinnerSvc: SpinnerService){}
+    
+            intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+                this.spinnerSvc.show();
+                return next.handle(req).pipe(
+                    finalize( () => this.spinnerSvc.hide()));
+            }
+            */
 }

@@ -131,8 +131,7 @@ forkJoin permite la creación del flujo de salida con los últimos
       )
     );
               }
-
-              onSelected(event: Event ): void {
+     onSelected(event: Event ): void {
                 // event:InputEvent??
                 // or <HTMLInputElement>event.target
                 let userName=(event.target as HTMLInputElement).value;
