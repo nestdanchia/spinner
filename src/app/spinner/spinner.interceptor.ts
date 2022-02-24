@@ -5,7 +5,7 @@ import { SpinnerService } from './spinner.service';
 
 @Injectable()
 export class SpinnerInterceptor implements HttpInterceptor {
-
+/*
     constructor(private spinnerSvc: SpinnerService){}
     
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -13,9 +13,9 @@ export class SpinnerInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             finalize( () => this.spinnerSvc.hide()));
     }
+*/
 
 
-/*
     constructor(private spinnerService: SpinnerService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -33,6 +33,7 @@ export class SpinnerInterceptor implements HttpInterceptor {
             
             
     }
+    /*
     constructor(private spinnerSvc: SpinnerService){}
     
             intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

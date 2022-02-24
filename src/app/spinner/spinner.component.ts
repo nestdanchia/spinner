@@ -140,3 +140,12 @@ forkJoin permite la creación del flujo de salida con los últimos
               }
               
   }
+/*
+
+intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        this.spinnerSvc.show();
+        return next.handle(req).pipe(
+            finalize( () => this.spinnerSvc.hide()));
+    }
+
+*/

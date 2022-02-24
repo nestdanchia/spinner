@@ -17,6 +17,7 @@
 <div *ngIf='dataForUser$ | async as data'>
 	<h2>Data for: {{ data.name }}</h2>
 	<table *ngIf="data.todos">
+		<caption>User</caption>
 		<thead>
 			<tr>
 				<th>User</th>
@@ -36,6 +37,7 @@
 	</table>
 	<p></p>
 	<table *ngIf="data.posts">
+		<caption>Post</caption>
 		<thead>
 			<tr>
 				<th>User</th>
