@@ -1,4 +1,5 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +9,7 @@ import localeEsAr from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
 import { NumberPipe } from './number.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SpinnerService } from './spinner/spinner.service';
+
 registerLocaleData(localeEsAr, 'es-Ar');
 
 // ng g m material --module=app
@@ -25,10 +26,9 @@ registerLocaleData(localeEsAr, 'es-Ar');
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [SpinnerService
-    //, { provide: LOCALE_ID, useValue: 'es-Ar', multi: true
-// }
   
+  providers: [
+ 
    ],
   bootstrap: [AppComponent]
 })
