@@ -37,7 +37,8 @@ username:string;
 @Component({
   selector: 'app-spinner',
   templateUrl: './spinner.component.html',
-  styleUrls: ['./spinner.component.scss']
+  styleUrls: ['./spinner.component.scss'],
+ // providers: [SpinnerService]
 })
 export class SpinnerComponent implements OnInit, AfterViewInit{
   todoUrl = 'https://jsonplaceholder.typicode.com/todos';
@@ -72,7 +73,9 @@ export class SpinnerComponent implements OnInit, AfterViewInit{
       });
     }
     ngAfterViewInit() {
-
+    /*  this.spinnerService.spinnerVisibility$.subscribe(
+        bol=>{this.vi=bol;console.log('spinner:',this.vi)}
+      )*/
       // All Users
   this.users$ = this.httpClient.get<User[]>(this.userUrl)
   .pipe(

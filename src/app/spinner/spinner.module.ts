@@ -25,9 +25,9 @@ import { SpinnerService } from './spinner.service';
      provide: HTTP_INTERCEPTORS,
      useClass: SpinnerInterceptor,
      multi:true
-    },
-   
-     ],
+    }
+   ,{ provide: SpinnerService, useClass: SpinnerService }
+     ]
 })
 
 export class SpinnerModule { }

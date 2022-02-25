@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NumberValidators } from './validator';
+import { LOCALE_ID } from '@angular/core';
 
-// default selected value https://www.delftstack.com/howto/angular/angular-select-default-value/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }]
 })
 export class AppComponent implements OnInit {
   
@@ -19,7 +20,8 @@ export class AppComponent implements OnInit {
   email!:'';
   numberRegEx = /\-?\d*\.?\d{1,2}/;
   values: string='0';
-  constructor(
+  // @Inject('LOCALE_ID') private LOCALE_ID:string ) ,
+  constructor(//@Inject('LOCALE_ID')private LOCALE_ID:string,
     private fb: FormBuilder,
   ) {}
   
